@@ -1,6 +1,6 @@
-== writerShare
+= writerShare
 
-=This is an app for viewing, editing, sharing, and version control of written documents.
+==This is an app for viewing, editing, sharing, and version control of written documents.
 
 It is a ruby on rails web application written by James Milani as my fourth project for the Web Development Immersive at General Assembly. June 2014.
 
