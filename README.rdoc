@@ -1,28 +1,9 @@
-== README
+== writerShare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=This is an app for viewing, editing, sharing, and version control of written documents.
 
-Things you may want to cover:
+It is a ruby on rails web application written by James Milani as my fourth project for the Web Development Immersive at General Assembly. June 2014.
 
-* Ruby version
+The idea for this application was conceived with the help of Lex Alexander and Lorin Thwaits.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+It originally came about due to the desire to create a secure and private way for writers to share their work and to allow the people that they share it with to have easy editing access, but to also allow for the author to maintain the integrity of their ideas and work. It keeps the editor's revisions seperate from the author's original work. As the idea process continued, the notion of "version control for writers" came about. Thus, when someone uploads their piece to their profile, it will persist and be viewable alongside future revisions so that authors can see how their work has changed over time.
