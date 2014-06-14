@@ -30,10 +30,16 @@ describe User do
         expect(@user2).to_not be_persisted
     end
 
-    it "should have have a unique email" do
+    it "should have a unique email" do
         @user3 = User.new(name: "serious mike", email: "dawgie@snoop.com", password: "quesoplease")
         @user3.save
-        expect(@user3).to_not be_persisted
+        expect(@user3).to be_invalid
+    end
+
+    it "should have a unique name" do
+        @user4 = User.new(name:"home dawg", email: "topdawg@bigdawg.com", password: "kingofdawgs")
+        @user4.save
+        expect(@user4).to be_invalid
     end
 
 end
