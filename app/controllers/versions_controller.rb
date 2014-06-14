@@ -20,7 +20,12 @@ class VersionsController < ApplicationController
   end
 
   def update
-    @version = Version.update(params:[id])
+    @version = Version.find(params:[id])
+    if @version.update(version_params)
+      redirect_to (@version)
+    else 
+      render "edit"
+  end 
   end
 
   def destroy
