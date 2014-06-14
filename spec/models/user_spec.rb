@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie")
+    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie", password_confirmation: "yuckie")
   end
 
      it "should be valid with a name, email, and password" do
@@ -18,6 +18,13 @@ describe User do
         @user.email = nil
         expect(@user).to be_invalid
     end
+
+    it "should be invalid without a password confirmation" do 
+        @user.password_confirmation = nil 
+        expect(@password_confirmation).to be_invalid
+    end 
+
+
 
     it "should be invalid without a password" do
         @user.password = nil
@@ -41,5 +48,10 @@ describe User do
         @user4.save
         expect(@user4).to be_invalid
     end
+
+    it "should have password equal password_confirmation" do
+        @user.password_confirmation = nil
+        expect(@password).to eql(@password_confirmation)
+    end 
 
 end
