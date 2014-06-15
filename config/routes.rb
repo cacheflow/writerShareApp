@@ -1,25 +1,36 @@
 WriterShareApp::Application.routes.draw do
-  get "pieces/index"
-  get "pieces/new"
-  get "pieces/create"
-  get "pieces/destroy"
-  get "versions/index"
-  get "versions/new"
-  get "versions/create"
-  get "versions/show"
-  get "versions/edit"
-  get "versions/update"
-  get "versions/destroy"
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "users/index"
-  get "users/new"
-  get "users/create"
-  get "users/show"
-  get "users/edit"
-  get "users/update"
-  get "users/destroy"
+  
+  resources :users do
+    resources :pieces do
+      resources :versions
+    end
+  end
+
+  resources :sessions
+
+
+
+  # get "pieces/index"
+  # get "pieces/new"
+  # get "pieces/create"
+  # get "pieces/destroy"
+  # get "versions/index"
+  # get "versions/new"
+  # get "versions/create"
+  # get "versions/show"
+  # get "versions/edit"
+  # get "versions/update"
+  # get "versions/destroy"
+  # get "sessions/new"
+  # get "sessions/create"
+  # get "sessions/destroy"
+  # get "users/index"
+  # get "users/new"
+  # get "users/create"
+  # get "users/show"
+  # get "users/edit"
+  # get "users/update"
+  # get "users/destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
