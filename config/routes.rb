@@ -1,9 +1,9 @@
 WriterShareApp::Application.routes.draw do
   
+  root "sessions#new"
+
   resources :users do
-    resources :pieces do
       resources :versions
-    end
   end
 
   resources :sessions
