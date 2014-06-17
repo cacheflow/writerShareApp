@@ -52,4 +52,7 @@ describe User do
         expect(@user.password).to eql(@user.password_confirmation)
     end 
 
+    
+
+
 end
