@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+
   def index
     @users = User.all
   end
@@ -26,18 +28,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = User.find(params[:id])
-    # if 
-    #
-    # else
-    #
-    # end
+    @user = User.find(params[:id])
+    if @user.save 
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to new_user_path
   end
 
+
   protected
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

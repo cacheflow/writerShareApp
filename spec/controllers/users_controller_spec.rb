@@ -57,24 +57,27 @@ describe UsersController, type: :controller do
     end
 
     describe "POST create" do
+        describe "a valid user is created" do
+            it "should create a user in the database" do
+                expect do
+                    post :create, user: valid_attributes
+                end.to change(User, :count).by(1)
+            end
 
-        it "should create a user in the database" do
-            expect do
+            it "should redirect to the user index" do
                 post :create, user: valid_attributes
-            end.to change(User, :count).by(1)
+                expect(response).to redirect_to users_path
+            end
         end
-
-        it "should redirect to the user index" do
-            post :create, user: valid_attributes
-            expect(response).to redirect_to users_path
-        end
-
-        it "should render the new user page if user's attributes are invalid" do
-            post :create, user: invalid_attributes
-            expect(response).to render_template :new
-        end
-
     end
+
+        describe "a valid user is not created" do
+            it "should render the new user page if user's attributes are invalid" do
+                post :create, user: invalid_attributes
+                expect(response).to render_template :new
+            end
+    end
+
 
     describe "GET show" do
         before do
@@ -135,24 +138,53 @@ describe UsersController, type: :controller do
             end
 
             it "should update the user in the database to have the new attributes" do
-                
+                expect(@user.reload.email).to eq("James@superjames.com")
             end
 
-            it "should" do
-
+            it "should redirect to the user's show page" do
+                expect(response).to redirect_to user_path(@user)
             end
         end
 
         describe "with an unsuccessful update" do
-            it "should" do
-
+            let :invalid_update_attributes do
+                {
+                    name: "James Milani",
+                    email: "superjames.com",
+                    password: "ilovecheese",
+                    password: "ilovecheese"
+                }
             end
 
-            it "should" do
+            before do
+                put :update, id: @user.id, user: invalid_update_attributes
+            end
 
+            it "should not update the user in the database" do
+                expect(@user.reload.email).to eq("james@james.com")
+            end
+
+            it "should redirect to the user's edit page" do
+                expect(response).to render_template :edit
             end
         end
     end
 
-    
+        describe "DELETE destroy" do
+            before do 
+                @user = User.create! valid_attributes
+            end 
+
+            it "should delete the user from the database" do 
+                expect do
+                    delete :destroy, id: @user.id
+                end.to change(User, :count).by(-1)
+            end 
+
+            it "after deleting it should take the user to the new user page" do
+                delete :destroy, id: @user.id
+                expect(response).to redirect_to new_user_path
+            end
+        end
+            
  end
