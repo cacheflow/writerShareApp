@@ -45,6 +45,8 @@ end
 # Allows developers to hide their secret keys
 gem 'figaro'
 
+gem 'foundation-rails'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
