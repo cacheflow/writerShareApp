@@ -1,7 +1,14 @@
-<h1>Create a new user </h1>
-<%= bootstrap_form_for(@user) do |f| %>
-  <%= f.email_field :email %>
-  <%= f.password_field :password %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit %>
-<% end %>
+<div class = "container">
+    <div class="col-md-4"></div>
+    <div class="well col-md-4">
+        <h1>Create a New User Account </h1>
+            <%= bootstrap_form_for(@user) do |f| %>
+                <%= f.text_field :name, class: "form-control" %>
+                <%= f.email_field :email, class: "form-control" %>
+                <%= f.password_field :password, class: "form-control" %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+                <%= f.submit "Submit", class: "btn btn-default" %>
+            <% end %>
+    </div>
+    <div class="col-md-4"></div>
+</div>
