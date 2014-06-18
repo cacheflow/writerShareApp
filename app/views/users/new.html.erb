@@ -7,7 +7,9 @@
                 <%= f.email_field :email, class: "form-control" %>
                 <%= f.password_field :password, class: "form-control" %>
                 <%= f.password_field :password_confirmation, class: "form-control" %>
+                <span class="title">Avatar: </span><%= f.file_field :avatar %>
                 <%= f.submit "Submit", class: "btn btn-default" %>
+
             <% end %>
     </div>
     <div class="col-md-4"></div>

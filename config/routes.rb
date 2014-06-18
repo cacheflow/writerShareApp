@@ -8,4 +8,6 @@ WriterShareApp::Application.routes.draw do
 
   resources :sessions
 
+  get "users/search" => "users#search"
+
 end
