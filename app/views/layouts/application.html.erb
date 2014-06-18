@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="<your installation path>/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript">
+        tinymce.init({
+        selector: "textarea"
+ });
+</script>
 </head>
 <body>
 
