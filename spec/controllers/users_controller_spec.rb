@@ -144,7 +144,7 @@ describe UsersController, type: :controller do
 
             it "should redirect to the user's show page" do
                 put :update, id: @user.id, user: update_attributes
-                expect(response).to redirect_to users_path
+                expect(response).to redirect_to user_path
             end
         end
 
