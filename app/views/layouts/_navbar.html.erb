@@ -26,11 +26,12 @@
           <ul class="dropdown-menu">
             <li><a href="#">Add a new Piece</a></li>
             <li><a href="#"></a></li>
-            <li><%= link_to "View My Profile", user_path(current_user) %></a></li>
+            <li><%= link_to "View My Profile", user_path(current_user) %></li>
+            <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li>
             <li class="divider"></li>
             <li><%= link_to "View My Friends", users_path %></a></li>
             <li class="divider"></li>
-            <li><a href="#">Could Add Something Here</a></li>
+            
           </ul>
         </li>
         <% end %>

@@ -1,5 +1,18 @@
 <h1>Your Friends</h1>
 
+<div id="search">
+    <%= render :partial => 'users/search' %>
+</div>
+
+<ul>
+    <% @users.each do |user| %>
+  <li><%= link_to user.name, 
+    :action => 'show', :id => user.id  %></li>
+  <% end %>
+</ul>
+
+
+
 <% if #the user is your friend, they should show up here. In a list %>
 
 <% end %>
