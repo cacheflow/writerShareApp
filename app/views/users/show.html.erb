@@ -19,7 +19,7 @@ Email: <%= @user.email %>
         <li>
             <hr>
             <% if f.friend.avatar_file_name %>
-                <%= img_tag f.friend.avatar_url(:thumb) %>
+                <%= image_tag f.friend.avatar_url(:thumb) %>
             <% end %>
             <%= link_to f.friend.name.titleize, user_path(f) %> (<%= link_to "remove friend", user_friendship_path(f), :method => :delete %>)
         </li>
