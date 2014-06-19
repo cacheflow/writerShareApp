@@ -1,7 +1,11 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-    belongs_to :user_friendship
+    has_many :user_friendships
+    has_many :friends, :through => :user_friendships
+    has_many :inverse_user_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :inverse_friends, :through => :inverse_user_friendships, :source => :user
+
     belongs_to :piece
 
     validates_presence_of :name, :email, :password, :password_confirmation
