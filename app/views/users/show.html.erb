@@ -9,10 +9,13 @@ Email: <%= @user.email %>
 <% if @user == current_user %>
 <%= link_to "Edit My Profile", edit_user_path(@user) %>
 <% end %>
-<% if current_user != @user %>
+<% if current_user != @user && @user.user_friendships == nil %>
     <%= link_to "Add #{@user.name} as a Friend", user_friendships_path(:friend_id => @user), :method => :post %>
 <% end %>
-
+<br>
+<% if current_user == @user %>
+<%= link_to "Add A New Writing Project", new_user_version_path(@user) %>
+<% end %>
 <h2><%= @user.name %>'s Friends</h2>
     <ul>
     <% @user.user_friendships.each do |f| %>
@@ -28,6 +31,19 @@ Email: <%= @user.email %>
 
 <h2>Users That Have Friended <%= @user.name %></h2>
 
+    <ul>
+        <% @user.inverse_friends.each do |f| %>
+            <li>
+                <hr>
+                <% if f.avatar_file_name %>
+                    <%= image_tag f.avatar_url(:thumb) %>
+                <% end %>
+                <%= link_to f.name.titleize, user_path(f)%>
+            </li>
+        <% end %>
+    </ul>
 
+
+  
 
 

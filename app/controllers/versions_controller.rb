@@ -1,4 +1,6 @@
 class VersionsController < ApplicationController
+  before_action :find_version, :only => [:show, :edit, :update, :destroy]
+  
   def index
     @versions = Versions.all 
   end
@@ -12,15 +14,15 @@ class VersionsController < ApplicationController
   end
 
   def show
-    @version = Version.find(params[:id])
+    
   end
 
   def edit
-    @version = Version.find(params[:id])
+    
   end
 
   def update
-    @version = Version.find(params:[id])
+    
     if @version.update(version_params)
       redirect_to (@version)
     else 
@@ -29,7 +31,7 @@ class VersionsController < ApplicationController
   end
 
   def destroy
-    @version = Version.destroy(params:[id])
+    
   end
 
 
