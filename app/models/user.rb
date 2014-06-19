@@ -3,7 +3,7 @@ require 'bcrypt'
 class User < ActiveRecord::Base
     has_many :user_friendships
     has_many :friends, :through => :user_friendships
-    has_many :inverse_user_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :inverse_user_friendships, :class_name => "UserFriendship", :foreign_key => "friend_id"
     has_many :inverse_friends, :through => :inverse_user_friendships, :source => :user
 
     belongs_to :piece
