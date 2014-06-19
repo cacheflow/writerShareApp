@@ -35,10 +35,15 @@ class VersionsController < ApplicationController
   end
 
 
-
+protected
 def version_params 
   params.required(:version).permit()
 end
+
+def find_version
+  @version = Version.find(params[:id])
+end
+
 
 end
 
