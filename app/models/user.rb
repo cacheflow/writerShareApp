@@ -44,4 +44,9 @@ class User < ActiveRecord::Base
         find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
     end
 
+    def avatar_url(size)
+        self.avatar.url(size)
+        # .gsub('s3.amazonaws.com/', 's3-us-west-2.amazonaws.com/')
+    end
+
 end
