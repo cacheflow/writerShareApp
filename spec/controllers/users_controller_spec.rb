@@ -120,7 +120,7 @@ describe UsersController, type: :controller do
 
     describe "PUT update" do
         before do
-            @user = User.create! valid_attributes
+             @user = User.create! valid_attributes
         end
 
         describe "with a successful update" do
@@ -133,16 +133,18 @@ describe UsersController, type: :controller do
                 }
             end
 
-            before do
-                put :update, id: @user.id, user: update_attributes
-            end
+            # before do
+            #     put :update, id: @user.id, user: update_attributes
+            # end
 
             it "should update the user in the database to have the new attributes" do
+                put :update, id: @user.id, user: update_attributes
                 expect(@user.reload.email).to eq("James@superjames.com")
             end
 
             it "should redirect to the user's show page" do
-                expect(response).to redirect_to user_path(@user)
+                put :update, id: @user.id, user: update_attributes
+                expect(response).to redirect_to user_path
             end
         end
 
@@ -165,7 +167,7 @@ describe UsersController, type: :controller do
             end
 
             it "should redirect to the user's edit page" do
-                expect(response).to render_template :edit
+                expect(response).to render_template(:edit)
             end
         end
     end

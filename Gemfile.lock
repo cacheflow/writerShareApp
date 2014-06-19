@@ -30,6 +30,8 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     bootstrap_form (2.1.1)
     builder (3.1.4)
     climate_control (0.0.3)
@@ -146,6 +148,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bcrypt (~> 3.1.7)
+  bootstrap-sass (~> 3.1.1)
   bootstrap_form
   coffee-rails (~> 4.0.0)
   figaro

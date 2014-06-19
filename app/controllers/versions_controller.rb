@@ -25,7 +25,7 @@ class VersionsController < ApplicationController
       redirect_to (@version)
     else 
       render "edit"
-  end 
+    end 
   end
 
   def destroy
@@ -36,7 +36,7 @@ class VersionsController < ApplicationController
 
 def version_params 
   params.required(:version).permit()
-
+end
 
 end
 

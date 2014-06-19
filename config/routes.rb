@@ -12,4 +12,9 @@ resources :version do
 
   resources :sessions
 
+
+  resources :user_friendships, :only => [:create, :destroy]
+
+  get "users/search" => "users#search"
+
 end
