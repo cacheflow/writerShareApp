@@ -1,6 +1,9 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+
+    include PublicActivity::Common
+
     has_many :user_friendships
     has_many :friends, :through => :user_friendships
     has_many :inverse_user_friendships, :class_name => "UserFriendship", :foreign_key => "friend_id"
@@ -10,8 +13,8 @@ class User < ActiveRecord::Base
 
     validates_presence_of :name, :email, :password, :password_confirmation
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    validates_uniqueness_of :email, :name, :friends
-
+    validates_uniqueness_of :email, :name
+    #, :friends
 
     has_attached_file :avatar, :styles => {:medium => "300x300>", :small => "150x150#", :thumb => "45x45#" }, 
     :storage => :s3,
@@ -19,8 +22,6 @@ class User < ActiveRecord::Base
     #:path => "/images/:id/:style.:extension",
     :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
-
 
     def password
         @password
