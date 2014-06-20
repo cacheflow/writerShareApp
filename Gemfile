@@ -55,3 +55,6 @@ gem "paperclip", "~> 4.1"
 #Amazon S3
 gem 'aws-sdk'
 
+#PDF reader
+gem 'pdf-reader', '~> 1.3.3'
+

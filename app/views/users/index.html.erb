@@ -4,16 +4,14 @@
     <%= render :partial => 'users/search' %>
 </div>
 
-<ul>
-    <% @users.each do |user| %>
-  <li><%= link_to user.name, 
-    :action => 'show', :id => user.id  %></li>
-  <% end %>
-</ul>
 
 
+    <ul>
+        <% @users.each do |user| %>
+            <% if %>
+                <li><%= link_to user.name, :action => 'show', :id => user.id  %></li>
+            <% end %>
+        <% end %>
+    </ul>
 
-<% if #the user is your friend, they should show up here. In a list %>
-
-<% end %>
 
