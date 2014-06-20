@@ -1,9 +1,15 @@
 <h1>Welcome to Creating a new Piece for Your Writing Project</h1>
 
-<p>Upload a word or pdf file here:</p>
+<h2>Upload a word or pdf file here:</h2>
+
+<%= file_field :avatar %>
+<%= submit "Submit", class: "btn btn-success" %>
 
 
-<p>Or Copy and Paste a file into here:</p>
 
-<textarea></textarea>
+<h2>Or Copy and Paste a file into here:</h2>
+
+<div class="text-editor">
+    <textarea id="elm1" name="area"></textarea>
+</div>
 
