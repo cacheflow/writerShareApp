@@ -19,7 +19,8 @@ class VersionsController < ApplicationController
   def edit
   end
 
-  def update    
+
+  def update
     if @version.update(version_params)
       redirect_to user_path
     else 
@@ -28,18 +29,19 @@ class VersionsController < ApplicationController
   end
 
   def destroy
-    
   end
 
 
 protected
-def version_params 
-  params.required(:version).permit(:title, :body)
-end
 
-def find_version
-  @version = Version.find(params[:id])
-end
+  def version_params 
+    params.required(:version).permit(:title, :body)
+  end
+
+
+  def find_version
+    @version = Version.find(params[:id])
+  end
 
 
 end

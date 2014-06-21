@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie", password_confirmation: "yuckie")
+    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie", password_confirmation: "yuckie", avatar: "james.jpg")
   end
 
      it "should be valid with a name, email, and password" do
