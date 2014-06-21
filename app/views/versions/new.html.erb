@@ -1,10 +1,11 @@
 <h1>Welcome to Creating a new Piece for Your Writing Project</h1>
 
 <h2>Upload a word or pdf file here:</h2>
-
-<%= file_field :avatar %>
-<%= submit "Submit", class: "btn btn-success" %>
-
+    <%= bootstrap_form_for(version(@user)) do |v| %>
+        <%= v.text_field :title %>
+        <%= v.file_field :body, :method => :post, class: "btn btn-default" %>
+        <%= v.submit "Submit", class: "btn btn-success" %>
+    <% end %>
 
 
 <h2>Or Copy and Paste a file into here:</h2>
