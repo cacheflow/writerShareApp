@@ -14,17 +14,14 @@ class VersionsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
-  def update
-    
+  def update    
     if @version.update(version_params)
-      redirect_to (@version)
+      redirect_to user_path
     else 
       render "edit"
     end 
@@ -37,7 +34,7 @@ class VersionsController < ApplicationController
 
 protected
 def version_params 
-  params.required(:version).permit()
+  params.required(:version).permit(:title, :body)
 end
 
 def find_version
