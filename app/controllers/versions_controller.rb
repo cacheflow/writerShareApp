@@ -19,6 +19,7 @@ class VersionsController < ApplicationController
   def edit
   end
 
+
   def update
     if @version.update(version_params)
       redirect_to user_path
@@ -32,9 +33,11 @@ class VersionsController < ApplicationController
 
 
 protected
+
   def version_params 
     params.required(:version).permit(:title, :body)
   end
+
 
   def find_version
     @version = Version.find(params[:id])

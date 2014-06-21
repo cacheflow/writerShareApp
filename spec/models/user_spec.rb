@@ -50,9 +50,14 @@ describe User do
 
     it "should have password equal password_confirmation" do
         expect(@user.password).to eql(@user.password_confirmation)
-    end 
+    end
 
-    
+    it { should have_many(:friends) }
+    it { should have_many(:user_friendships) }
+    it { should have_many(:versions) }
+    it { should have_many(:inverse_friends) }
+    it { should have_many(:inverse_user_friendships) }
+
 
 
 end
