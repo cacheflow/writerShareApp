@@ -11,6 +11,11 @@ class VersionsController < ApplicationController
 
   def create
     @version = Version.create(version_params)
+    if @version.save
+      redirect_to user_versions_path
+    else
+      render 'new'
+    end
   end
 
   def show
