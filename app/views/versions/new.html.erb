@@ -1,16 +1,42 @@
-<h1>Welcome to Creating a new Piece for Your Writing Project</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1>Create a New Writing Project</h1>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 
-<h2>Upload a word or pdf file here:</h2>
-    <%= bootstrap_form_for(version(@user)) do |v| %>
-        <%= v.text_field :title %>
-        <%= v.file_field :body, :method => :post, class: "btn btn-default" %>
-        <%= v.submit "Submit", class: "btn btn-success" %>
-    <% end %>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 well">
+            <h3>Upload a word or pdf file here:</h3>
+                <%= bootstrap_form_for(:version) do |v| %>
+                    <%= v.text_field :title, class: "form-control" %>
+                    <%= v.file_field :body, :method => :post, class: "form-control" %>
+                    <%= v.submit "Submit", class: "btn btn-success" %>
+                <% end %>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 
-
-<h2>Or Copy and Paste a file into here:</h2>
-
-<div class="text-editor">
-    <textarea id="elm1" name="area"></textarea>
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-12 well">
+            <h3>Or Copy and Paste a File Into Here:</h3>
+                <%= bootstrap_form_for(:version) do |v| %>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <%= v.text_field :title, class: "form-control" %>
+                        </div>
+                        <div class="col-md-7"></div>
+                    </div>
+                    <div class="text-editor">
+                        <textarea id="elm1" name="area"></textarea>
+                    </div>
+                <% end %>
+        </div>
+        <div class="col-md"></div>
+    </div>
 </div>
-
