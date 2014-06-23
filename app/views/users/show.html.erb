@@ -42,7 +42,7 @@
                         <% if f.avatar_file_name %>
                             <%= image_tag f.avatar_url(:thumb) %>
                         <% end %>
-                        <%= link_to f.name.titleize, user_path(f)%>
+                        <%= link_to f.name.titleize, user_path(f)%> (<%= link_to "remove friend", user_friendship_path(f.id), :method => :delete %>)
                     </li>
                 <% end %>
                 </ul>
