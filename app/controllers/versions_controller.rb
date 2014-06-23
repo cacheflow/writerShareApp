@@ -2,7 +2,7 @@ class VersionsController < ApplicationController
   before_action :find_version, :only => [:show, :edit, :update, :destroy]
   
   def index
-    @versions = Versions.all 
+    @versions = Version.all 
   end
 
   def new
