@@ -6,6 +6,31 @@
 
 
 
+
+    <style type="text/css">
+
+    .create{
+        margin-left: 480px;
+        padding: 10px;
+        width: 300px;
+    }
+
+    .editbutton{
+        margin-left: 500px; 
+        padding: 20px;
+    }
+
+
+
+    h1{
+       margin: 30px;
+    }
+
+
+    </style>
+
+
+
 </head>
 <body>
 
@@ -21,9 +46,6 @@
         <div class="col-md-3"></div>
     </div>
 
-<div class = "create">
-<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Create</a>
-</div>
 
     <div class = "upload">
     <div class="row">
@@ -41,9 +63,7 @@
 </div>
 
 
-<div class = "editbutton">
-<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Use editor instead</a>
-</div>
+
 
 
    <div class = "editor">
@@ -69,24 +89,47 @@
 </div>
 </div> 
 
+<div class = "create">
+<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Upload a new document</a>
+</div>
+
+
+
+<div class = "editbutton">
+<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Type it by hand</a>
+</div>
+
 
 <script type="text/javascript">
 
 $(document).ready(function() {
+ $('.upload').hide();
+    $(".editor").hide();
 
- $('.editor').hide(); //Initially form wil be hidden.
- $(".editbutton").click(function(){
-    $(".editor").fadeIn("slow");
- }),
-
- $('.upload').hide(); //Initially form wil be hidden.
- $(".create").click(function(){
-    $(".upload").show();
  })
+
+$(".create").click(function() {
+    $(".upload").toggle();
+})
+
+
+$(".editbutton").click(function() {
+    $(".editor").toggle();
+});
+
+
+
+
+
+
+ // $('.upload').hide(); //Initially form wil be hidden.
+ // $(".create").click(function(){
+ //    $(".upload").show();
+ // })
   
   
 
-   });
+ //   });
 
 
     
