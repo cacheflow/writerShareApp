@@ -1,5 +1,5 @@
-<%= form_tag @user, :url => users_path, :method => 'get' do %>
+<%= form_tag @user, :url => users_path, :method => :get do %>
     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-    <%= submit_tag "Search", :name => nil %> 
-    <%= link_to_function "Clear", "$('search_field').clear()" %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-info" %> 
+    <%= link_to "Clear", users_path %>
 <% end %> 

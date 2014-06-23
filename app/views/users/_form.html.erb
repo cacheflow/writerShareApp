@@ -1,1 +1,8 @@
-hi
+<%= bootstrap_form_for(@user) do |f| %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
+        <%= f.password_field :password, class: "form-control" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.file_field :avatar, class: "form-control" %>
+        <%= f.submit "Submit", class: "btn btn-info" %>
+<% end %>
