@@ -1,2 +1,147 @@
-<h1>Versions#new</h1>
-<p>Find me in app/views/versions/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+
+
+    <style type="text/css">
+
+    .create{
+        margin-left: 480px;
+        padding: 10px;
+        width: 300px;
+    }
+
+    .editbutton{
+        margin-left: 500px; 
+        padding: 20px;
+    }
+
+
+
+    h1{
+       margin: 30px;
+    }
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1>Create a New Writing Project</h1>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+    <div class = "upload">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 well">
+            <h3>Upload a word or pdf file here:</h3>
+                <%= bootstrap_form_for(:version) do |v| %>
+                    <%= v.text_field :title, class: "form-control" %>
+                    <%= v.file_field :body, :method => :post, class: "form-control" %>
+                    <%= v.submit "Submit", class: "btn btn-success" %>
+                <% end %>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+
+
+   <div class = "editor">
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-12 well">
+            <h3>Or Copy and Paste a File Into Here:</h3>
+                <%= bootstrap_form_for(:version) do |v| %>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <%= v.text_field :title, class: "form-control" %>
+                        </div>
+                        <div class="col-md-7"></div>
+                    </div>
+                    <div class="text-editor">
+                        <textarea id="elm1" name="area"></textarea>
+                    </div>
+                    <%= v.text_area :body, class: "text-editor", id: "elm1", name: "area" %>
+                    <%= v.submit "Submit", class: "btn btn-success" %>
+                <% end %>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>
+</div> 
+
+<div class = "create">
+<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Upload a new document</a>
+</div>
+
+
+
+<div class = "editbutton">
+<a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Type it by hand</a>
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+ $('.upload').hide();
+    $(".editor").hide();
+
+ })
+
+$(".create").click(function() {
+    $(".upload").toggle();
+})
+
+
+$(".editbutton").click(function() {
+    $(".editor").toggle();
+});
+
+
+
+
+
+
+ // $('.upload').hide(); //Initially form wil be hidden.
+ // $(".create").click(function(){
+ //    $(".upload").show();
+ // })
+  
+  
+
+ //   });
+
+
+    
+
+
+
+</script>
+
+
+
+</body>
+</html>
+

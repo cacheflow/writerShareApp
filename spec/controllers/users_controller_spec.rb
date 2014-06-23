@@ -68,6 +68,13 @@ describe UsersController, type: :controller do
                 post :create, user: valid_attributes
                 expect(response).to redirect_to users_path
             end
+
+            it { should permit(:name).for(:create) }
+            it { should permit(:email).for(:create) }
+            it { should permit(:password).for(:create) }
+            it { should permit(:password_confirmation).for(:create) }
+            it { should permit(:avatar).for(:create) }
+
         end
     end
 
@@ -133,10 +140,6 @@ describe UsersController, type: :controller do
                 }
             end
 
-            # before do
-            #     put :update, id: @user.id, user: update_attributes
-            # end
-
             it "should update the user in the database to have the new attributes" do
                 put :update, id: @user.id, user: update_attributes
                 expect(@user.reload.email).to eq("James@superjames.com")
@@ -188,5 +191,7 @@ describe UsersController, type: :controller do
                 expect(response).to redirect_to new_user_path
             end
         end
+
+
             
  end

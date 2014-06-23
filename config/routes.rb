@@ -3,6 +3,7 @@ WriterShareApp::Application.routes.draw do
 resources :version do 
  :comments 
  end 
+  resources :activities 
 
   root "sessions#new"
  
@@ -10,7 +11,7 @@ resources :version do
       resources :versions
   end
 
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
 
 
   resources :user_friendships, :only => [:create, :destroy]
