@@ -6,7 +6,7 @@ describe SessionsController, type: :controller do
 
         before do
             @joe = User.create!(name: "Joe", email: "joe@joe.com", password: "thisishard", password_confirmation: "thisishard")
-            post :create, user: @joe
+            post :create, session: :remember_token
         end
 
 
@@ -14,13 +14,8 @@ describe SessionsController, type: :controller do
             expect("joe@joe.com").to eq(@joe)
         end
 
-        describe "a valid login" do
 
-            xit "should redirect to the user index" do
-                expect(response).to redirect_to users_path
-            end
-
-        end
+            it { should redirect_to(users_path)}
 
 
     end
