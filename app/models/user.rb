@@ -9,12 +9,16 @@ class User < ActiveRecord::Base
     has_many :inverse_user_friendships, :class_name => "UserFriendship", :foreign_key => "friend_id"
     has_many :inverse_friends, :through => :inverse_user_friendships, :source => :user
 
-    belongs_to :piece
+    has_many :versions
 
     validates_presence_of :name, :email, :password, :password_confirmation
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates_uniqueness_of :email, :name
+<<<<<<< HEAD
     #, :friends
+=======
+
+>>>>>>> 28ee5a03e90e922dc0213ecb2cfb3d6a8a46c372
 
     has_attached_file :avatar, :styles => {:medium => "300x300>", :small => "150x150#", :thumb => "45x45#" }, 
     :storage => :s3,

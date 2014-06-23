@@ -1,17 +1,30 @@
-<h1>Your Friends</h1>
-
-<div id="search">
-    <%= render :partial => 'users/search' %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="search">
+            <h2>Search for Your Friends</h2>
+            <%= render :partial => 'users/search' %>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </div>
 
-
-
-    <ul>
-        <% @users.each do |user| %>
-            <% if %>
-                <li><%= link_to user.name, :action => 'show', :id => user.id  %></li>
-            <% end %>
-        <% end %>
-    </ul>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <ul>
+                <% @users.each do |user| %>
+                    <li>
+                    <hr> <!-- creates the line break for the users to be seperated -->
+                        <% if user.avatar_file_name %>
+                            <%= link_to image_tag(user.avatar_url(:thumb)), user_path(user), style: "padding: 0" %>
+                        <% end %>
+                        <%= link_to user.name, :action => 'show', :id => user.id  %>
+                     </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

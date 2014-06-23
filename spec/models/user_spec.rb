@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie", password_confirmation: "yuckie")
+    @user = User.create!(name: "home dawg", email: "dawgie@snoop.com", password: "yuckie", password_confirmation: "yuckie", avatar: "james.jpg")
   end
 
      it "should be valid with a name, email, and password" do
@@ -50,9 +50,14 @@ describe User do
 
     it "should have password equal password_confirmation" do
         expect(@user.password).to eql(@user.password_confirmation)
-    end 
+    end
 
-    
+    it { should have_many(:friends) }
+    it { should have_many(:user_friendships) }
+    it { should have_many(:versions) }
+    it { should have_many(:inverse_friends) }
+    it { should have_many(:inverse_user_friendships) }
+
 
 
 end

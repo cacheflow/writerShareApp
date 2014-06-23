@@ -5,7 +5,7 @@ WriterShareApp::Application.routes.draw do
       resources :versions
   end
 
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
 
   resources :user_friendships, :only => [:create, :destroy]
 
