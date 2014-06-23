@@ -74,20 +74,8 @@
     <div class="col-md-4"></div>
     <div class = "clearme">
     <div class="well col-md-4">
-            <%= bootstrap_form_for(@user) do |f| %>
-                <%= f.text_field :name, class: "form-control", placeholder: "Email address" %>
-                <%= f.email_field :email, class: "form-control", placeholder: "Email address" %>
-                <%= f.password_field :password, class: "form-control" %>
-                <%= f.password_field :password_confirmation, class: "form-control" %>
-<<<<<<< HEAD
-                <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
-                            </div>
-=======
-                <span class="title">Avatar: </span><%= f.file_field :avatar %>
-                <%= f.submit "Submit", class: "btn btn-default" %>
->>>>>>> 24e98d6f77f21bbb37d8a0b33d454feda35028d7
-
-            <% end %>
+        <h1>Create a New User Account </h1>
+        <%= render partial: 'users/form' %>
     </div>
     </div>
     <div class="col-md-4"></div>

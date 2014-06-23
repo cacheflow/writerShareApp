@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20140621001324) do
     t.integer  "piece_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
+    t.string   "password_confirmation"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

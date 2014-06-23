@@ -9,15 +9,17 @@
                 <% end %>
             </div>
             <p>Email: <%= @user.email %></p>
-            <% if @user == current_user %>
+            <% if current_user == @user %>
                 <%= link_to "Edit My Profile", edit_user_path(@user), class: "btn btn-info" %>
             <% end %>
             <% if current_user != @user %>
-                <%= link_to "Add #{@user.name} as a Friend", user_friendships_path(:friend_id => @user), :method => :post %>
+                <%= link_to "Add #{@user.name} as a Friend", user_friendships_path(:friend_id => @user), :method => :post, class: "btn btn-success" %>
             <% end %>
             <% if current_user == @user %>
                 <%= link_to "Add A New Writing Project", new_user_version_path(@user), class: "btn btn-success" %>
             <% end %>
+                <%= link_to "See My Writing Projects", user_versions_path(@user), class: "btn btn-info" %>
+
         </div>
         <div class="col-md-4">
             <h2><%= @user.name %>'s Friends</h2>
@@ -28,7 +30,7 @@
                         <% if f.friend.avatar_file_name %>
                             <%= link_to image_tag(f.friend.avatar_url(:thumb)), user_path(f.friend), style: "padding: 0" %>
                         <% end %>
-                        <%= link_to f.friend.name.titleize, user_path(f.friend_id) %> (<%= link_to "remove friend", user_friendship_path(f), :method => :delete %>)
+                        <%= link_to f.friend.name.titleize, user_path(f.friend_id) %> <%= link_to "remove friend", user_friendship_path(f), :method => :delete, class: "btn btn-danger" %>
                     </li>
                 <% end %>
                 </ul>
@@ -42,7 +44,7 @@
                         <% if f.avatar_file_name %>
                             <%= image_tag f.avatar_url(:thumb) %>
                         <% end %>
-                        <%= link_to f.name.titleize, user_path(f)%>
+                        <%= link_to f.name.titleize, user_path(f)%> <%= link_to "remove friend", user_friendship_path(f.id), :method => :delete, class: "btn btn-danger" %>
                     </li>
                 <% end %>
                 </ul>

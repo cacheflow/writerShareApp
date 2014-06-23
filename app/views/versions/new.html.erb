@@ -82,6 +82,8 @@
                     <div class="text-editor">
                         <textarea id="elm1" name="area"></textarea>
                     </div>
+                    <%= v.text_area :body, class: "text-editor", id: "elm1", name: "area" %>
+                    <%= v.submit "Submit", class: "btn btn-success" %>
                 <% end %>
         </div>
         <div class="col-md"></div>
