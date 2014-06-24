@@ -1,6 +1,11 @@
 WriterShareApp::Application.routes.draw do
   
-  Mercury::Engine.routes
+  mount Mercury::Engine => '/'
+  Mercury::Engine.routes do
+
+  end
+
+
   root "sessions#new"
 
   resources :users do
