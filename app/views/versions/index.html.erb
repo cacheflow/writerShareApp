@@ -1,2 +1,11 @@
 <h1>Versions Index</h1>
 
+<% @versions.each do |v| %>
+    <div>
+        <%= v.title %>
+        <%= v.body %>
+        <hr>
+    </div>
+<% end %>
+
+

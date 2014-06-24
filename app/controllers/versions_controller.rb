@@ -2,15 +2,16 @@ class VersionsController < ApplicationController
   before_action :find_version, :only => [:show, :edit, :update, :destroy]
   
   def index
-    @versions = Version.all 
+    @versions = current_user.versions
   end
 
   def new
-    @version = Version.new
+    @version = current_user.versions.new
   end
 
   def create
-    @version = Version.create(version_params)
+    @version = current_user.versions.new(version_params)
+    # @submission = @venue.submissions.new(submission_params.merge(user: current_user))
     if @version.save
       redirect_to user_versions_path
     else

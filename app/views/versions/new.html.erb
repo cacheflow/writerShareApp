@@ -11,7 +11,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 well">
             <h3>Upload a word or pdf file here:</h3>
-                <%= bootstrap_form_for(:version) do |v| %>
+                <%= bootstrap_form_for([@current_user, @version]) do |v| %>
                     <%= v.text_field :title, class: "form-control" %>
                     <%= v.file_field :body, :method => :post, class: "form-control" %>
                     <%= v.submit "Submit", class: "btn btn-success" %>
@@ -24,7 +24,7 @@
         <div class="col-md"></div>
         <div class="col-md-12 well">
             <h3>Or Copy and Paste a File Into Here:</h3>
-                <%= bootstrap_form_for(:version) do |v| %>
+                <%= bootstrap_form_for([@current_user, @version]) do |v| %>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
