@@ -30,7 +30,11 @@
                         <% if f.friend.avatar_file_name %>
                             <%= link_to image_tag(f.friend.avatar_url(:thumb)), user_path(f.friend), style: "padding: 0" %>
                         <% end %>
-                        <%= link_to f.friend.name.titleize, user_path(f.friend_id) %> <%= link_to "remove friend", user_friendship_path(f), :method => :delete, class: "btn btn-danger" %>
+                        
+                        <%= link_to f.friend.name.titleize, user_path(f.friend_id) %>
+                        <% if @user == current_user %>
+                            <%= link_to "remove friend", user_friendship_path(f), :method => :delete, class: "btn btn-danger btn-xs" %>
+                        <% end %>
                     </li>
                 <% end %>
                 </ul>
@@ -44,7 +48,11 @@
                         <% if f.avatar_file_name %>
                             <%= image_tag f.avatar_url(:thumb) %>
                         <% end %>
-                        <%= link_to f.name.titleize, user_path(f)%> <%= link_to "remove friend", user_friendship_path(f.id), :method => :delete, class: "btn btn-danger" %>
+                        
+                        <%= link_to f.name.titleize, user_path(f)%>
+                        <% if @user == current_user %>
+                        <%= link_to "remove friend", user_friendship_path(f.id), :method => :delete, class: "btn btn-danger btn-xs" %>
+                        <% end %>
                     </li>
                 <% end %>
                 </ul>

@@ -1,15 +1,19 @@
 WriterShareApp::Application.routes.draw do
   
-  mount Mercury::Engine => '/'
-  Mercury::Engine.routes do
+  # put "users/:user_id/versions/:id/edit" => "versions#mercury_update"
 
-  end
+  # mount Mercury::Engine => '/'
+  # Mercury::Engine.routes do
+
+  # end
 
 
   root "sessions#new"
 
   resources :users do
-      resources :versions
+      resources :versions do
+        member { post :mercury_update }
+      end
   end
 
   resources :sessions, :only => [:new, :create, :destroy]
@@ -17,5 +21,9 @@ WriterShareApp::Application.routes.draw do
   resources :user_friendships, :only => [:create, :destroy]
 
   get "users/search" => "users#search"
+
+  # post "users/:id/versions/new" => "versions#index"
+
+
 
 end
