@@ -11,15 +11,14 @@ resources :version do
   end
 
 
-  root "sessions#new"
+  root "sessions#index"
 
-  root "sessions#new"
  
   resources :users do
       resources :versions
   end
 
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :index, :create, :destroy]
 
 
   resources :user_friendships, :only => [:create, :destroy]

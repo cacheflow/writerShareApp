@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140621001324) do
     t.string   "user_name"
   end
 
+
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
     t.string   "trackable_type"
@@ -41,6 +42,19 @@ ActiveRecord::Schema.define(version: 20140621001324) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
+<<<<<<< HEAD
+=======
+  create_table "comments", force: true do |t|
+    t.string   "user_name"
+    t.text     "body"
+    t.integer  "piece_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["piece_id"], name: "index_comments_on_piece_id", using: :btree
+
+>>>>>>> master
   create_table "pieces", force: true do |t|
     t.integer  "user_id"
     t.integer  "version_id"
@@ -71,8 +85,6 @@ ActiveRecord::Schema.define(version: 20140621001324) do
     t.integer  "piece_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password"
-    t.string   "password_confirmation"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

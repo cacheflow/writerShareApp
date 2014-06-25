@@ -5,6 +5,9 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def index
+  end 
+
   def create
     @user = User.where(email: params[:session][:email]).first
 

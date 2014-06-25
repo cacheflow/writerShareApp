@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>Hello everyone </title>
+    
+    <style>
+        body{
+            text-align: center;
+        }
+        
+        #container{
+            font-size: 24px;
+        }  
+
+
+        .create {
+            display: none;
+            margin-top: 50px;
+            margin-left: 500px;
+            position: absolute;
+        }
+
+    </style>
+
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+        
+
+
+    
+    <script>
+            
+
+
+        var text = 'Welcome to WriterShare, a cool way to edit, save, and share your work with friends. Try it out...';
+
+        //when the document is fully fucking loaded
+        $(document).ready(function(){
+
+
+         // $.each(text.split(''), function (i, letter){
+
+        putLetters().css("top")
+          
+
+        })
+
+              
+
+
+        
+        function putLetters(){
+                if(text.length == 0) {
+                    $(".create").slideDown("fast")
+
+                }
+
+                else {
+                 $('#container').html($('#container').html() + text[0]);  
+                text = text.substring(1, 99999);
+                setTimeout(putLetters, 50);   
+                }
+            }
+
+        
+
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+    
+    <div id="container">
+
+    <div class = "create"> 
+
+    <a href="#" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> Try it for free </a>
+
+    </div>
+    </div>
+
+    <!-- 
+        We use Google's CDN to serve the jQuery js libs. 
+        To speed up the page load we put these scripts at the bottom of the page 
+    -->
+    
+</body>
+</html>
