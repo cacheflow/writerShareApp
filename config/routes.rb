@@ -4,6 +4,14 @@ resources :version do
  :comments 
  end 
   resources :activities 
+  
+  mount Mercury::Engine => '/'
+  Mercury::Engine.routes do
+
+  end
+
+
+  root "sessions#new"
 
   root "sessions#new"
  

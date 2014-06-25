@@ -55,9 +55,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Allows users to upload images
 gem "paperclip", "~> 4.1"
 
-#Amazon S3
+# Amazon S3 -- Data Storage
 gem 'aws-sdk'
 
-#PDF reader
+# PDF reader
 gem 'pdf-reader', '~> 1.3.3'
+
+# Mercury -- what's gonna save our bacon
+gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
+
 
