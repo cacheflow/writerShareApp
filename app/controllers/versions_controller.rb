@@ -7,13 +7,17 @@ class VersionsController < ApplicationController
 
   def new
     @version = current_user.versions.new
+    # @version = Version.where(user_id: nil).first
   end
 
   def create
-    @version = current_user.versions.new(version_params)
-    # @submission = @venue.submissions.new(submission_params.merge(user: current_user))
+    @version = current_user.versions.create(version_params)
     if @version.save
-      redirect_to user_versions_path
+    # puts "VEGAS, BABY!" + params.inspect
+    # @version = Version.where(user_id: nil).first
+    # if @version.update(version_params)
+    #   Version.create(title:'', body:'')
+    #   redirect_to user_versions_path
     else
       render 'new'
     end
@@ -23,6 +27,7 @@ class VersionsController < ApplicationController
   end
 
   def edit
+    # @version = Version.where(user_id: nil).first
   end
 
 
@@ -37,11 +42,21 @@ class VersionsController < ApplicationController
   def destroy
   end
 
+  # def mercury_update
+  #   @version = Version.where(user_id: nil).first
+  #   @version.title = params[:content][:version_title][:value]
+  #   @version.body = params[:content][:version_body][:value]
+  #   @version.save!
+  #   render html
+  #   # render json: { secret_message: "don't eat yellow snow" }
+  # end
+
 
 protected
 
+
   def version_params 
-    params.required(:version).permit(:title, :body)
+    params.require(:version).permit(:title, :body)
   end
 
 
