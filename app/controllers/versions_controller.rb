@@ -17,7 +17,7 @@ class VersionsController < ApplicationController
     # @version = Version.where(user_id: nil).first
     # if @version.update(version_params)
     #   Version.create(title:'', body:'')
-       redirect_to user_versions_path
+      redirect_to user_versions_path
     else
       render 'new'
     end
