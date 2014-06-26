@@ -1,3 +1,4 @@
+    <!-- This is a partial for the search field. It is taken out of the index page to reduce the clutter there and to allow it to be accessed in other places in future iterations of the project -->
 <%= form_tag @user, :url => users_path, :method => :get do %>
     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
     <%= submit_tag "Search", :name => nil, class: "btn btn-info" %> 

@@ -10,6 +10,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 well">
+            <!-- here is user is able to enter a title for a project and given the opportunity to upload a PDF of the work in progress -->
             <h3>Upload a word or pdf file here:</h3>
                 <%= bootstrap_form_for([current_user, @version]) do |v| %>
                     <%= v.text_field :title, class: "form-control" %>
@@ -24,6 +25,7 @@
         <div class="col-md"></div>
         <div class="col-md-12 well">
             <h3>Or Copy and Paste a File Into Here:</h3>
+                <!-- Here is the form for submitting a title and body to a project that they are currently working on (copied and pasted in) or that they want to create live in the browser. -->
                 <%= bootstrap_form_for([current_user, @version]) do |v| %>
                     <div class="row">
                         <div class="col-md-1"></div>

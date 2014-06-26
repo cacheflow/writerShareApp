@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.new
+    # The below code allows for the display of all users when there is no search query present, and for just the search results to be displayed when there is a search query.
     if params[:search] && !params[:search].empty?
       @users = User.where("email LIKE '%"+ params[:search] + "%'")
     else
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # session_create is a method that lives in the ApplicationController that is called both when creating a new user and when logging in. Here it is being called so that when a user creates a new account, they are also logged in.
       session_create
       redirect_to users_path
     else

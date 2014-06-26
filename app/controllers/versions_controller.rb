@@ -2,21 +2,19 @@ class VersionsController < ApplicationController
   before_action :find_version, :only => [:show, :edit, :update, :destroy]
   
   def index
+    # shows the index of versions of the user's version index page
     @versions = current_user.versions
   end
 
   def new
+    # a new instance of a version is created with respect to a user
     @version = current_user.versions.new
-    # @version = Version.where(user_id: nil).first
   end
 
   def create
+    # instantiates a new version with respect to a user. If this fails for some reason, the user is directed to the new version path
     @version = current_user.versions.create(version_params)
     if @version.save
-    # puts "VEGAS, BABY!" + params.inspect
-    # @version = Version.where(user_id: nil).first
-    # if @version.update(version_params)
-    #   Version.create(title:'', body:'')
       redirect_to user_versions_path
     else
       render 'new'
@@ -27,11 +25,11 @@ class VersionsController < ApplicationController
   end
 
   def edit
-    # @version = Version.where(user_id: nil).first
   end
 
 
   def update
+    # updates a version based upon the version_params method that is in the protected section below.
     if @version.update(version_params)
       redirect_to user_path
     else 
@@ -42,14 +40,6 @@ class VersionsController < ApplicationController
   def destroy
   end
 
-  # def mercury_update
-  #   @version = Version.where(user_id: nil).first
-  #   @version.title = params[:content][:version_title][:value]
-  #   @version.body = params[:content][:version_body][:value]
-  #   @version.save!
-  #   render html
-  #   # render json: { secret_message: "don't eat yellow snow" }
-  # end
 
 
 protected
