@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.new
     # The below code allows for the display of all users when there is no search query present, and for just the search results to be displayed when there is a search query.
     if params[:search] && !params[:search].empty?
-      @users = User.where("email LIKE '%"+ params[:search] + "%'")
+      @users = User.where("name LIKE ?", '%' + params[:search] + "%")
     else
       @users = User.all
     end
