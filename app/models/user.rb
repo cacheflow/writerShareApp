@@ -53,8 +53,12 @@ class User < ActiveRecord::Base
     #     find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
     # end
 
+    #So I refactored the search code as follows 
+    ## Instead of passing the query directly to the controller
+    ## I wrote a search method that searches in the Users table
+    ## for a specific name based on user input
     def self.search(query)
-        where("name like ?", "#{query}")
+        where("name like ?", "%" + "#{query}" + "%")
     end 
 
     # this method allows the user to call in the exact size of the image that is desired for a particular instance of that image
