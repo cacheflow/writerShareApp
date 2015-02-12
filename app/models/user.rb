@@ -48,10 +48,14 @@ class User < ActiveRecord::Base
     end
 
     # this method allows the user to search against the database of users. The % symbols allows the "search" or the entered query to be just a fraction of the name or email address of the user that is being searched for
-    def self.search(search)
-        search_condition = "%" + search + "%"
-        find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
-    end
+    # def self.search(search)
+    #     search_condition = "%" + search + "%"
+    #     find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+    # end
+
+    def self.search(query)
+        where("name like ?", "#{query}")
+    end 
 
     # this method allows the user to call in the exact size of the image that is desired for a particular instance of that image
     def avatar_url(size)
